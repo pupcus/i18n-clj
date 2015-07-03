@@ -1,0 +1,8 @@
+planet: 'Marte'
+color:  'purpura'
+
+template:
+   message: 'Al {2,time,short} del {2,date,long}, se han detectado {1,number,integer} naves espaciales en el planeta {0}.'
+   format: 'Al %s del %s, se han detectado %d naves espaciales en el planeta %s.'
+   lisp: 'Al ~A del ~A, se han detectado ~A naves espaciales en el planeta ~A.'
+   moustache: 'Al {{time}} del {{date}}, se han detectado {{ships}} naves espaciales en el planeta {{planet}}.'
