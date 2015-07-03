@@ -1,0 +1,6 @@
+{:planet "Mars"
+ :color "purpurne"
+ :template {:message "Um {2,time,short} am {2,date,long} haben wir {1,number,integer} Raumschiffe auf dem Planeten {0} entdeckt."
+            :format "Um %s am %s haben wir %d Raumschiffe auf dem Planeten %s entdeckt."
+            :lisp "Um ~A am ~A haben wir ~A Raumschiffe auf dem Planeten ~A entdeckt."
+            :moustache "Um {{time}} am {{date}} haben wir {{ships}} Raumschiffe auf dem Planeten {{planet}} entdeckt."}}

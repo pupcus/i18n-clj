@@ -1,0 +1,8 @@
+planet: 'Mars'
+color: 'purple'
+
+template:
+  message: 'At {2,time,short} on {2,date,long}, we detected {1,number,integer} spaceships on the planet {0}.'
+  format: 'At %s on %s, we detected %d spaceships on the planet %s.'
+  lisp: 'At ~A on ~A, we detected ~A spaceships on the planet ~A.'
+  moustache: 'At {{time}} on {{date}}, we detected {{#ships}}{{ships}} spaceships{{/ships}}{{^ships}}nothing{{/ships}} on the planet {{planet}}.'
