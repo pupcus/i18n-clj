@@ -50,9 +50,13 @@
 
 (defrecord BundleManager [basename formats]
   component/Lifecycle
-  (start
-   [{:keys [basename] :as this}]
-   (assoc this :bundles (ref {}) :basename (if (keyword? basename) basename (keyword basename))))
+  (start [{:keys [basename] :as this}]
+    (log/info (format "start BundleManager with basename [%s]" basename))
+    (assoc this :bundles (ref {}) :basename (if (keyword? basename) basename (keyword basename))))
+
+  (stop [{:keys [basename] :as  this}]
+    (log/info (format "stop BundleManager with basename [%s]" basename))
+    (dissoc this :bundles :basename))
 
   IBundle
   (locate

@@ -1,5 +1,6 @@
 (ns org.pupcus.i18n.ResourceBundle
-  (:require [clojure.tools.reader.edn :as edn]
+  (:refer-clojure :exclude [read-string])
+  (:require [clojure.tools.reader.edn :refer [read-string]]
             [clj-yaml.core :refer [decode]]
             [org.pupcus.i18n.value :as value])
   (:import org.yaml.snakeyaml.Yaml)
@@ -20,7 +21,7 @@
   (decode (.load (Yaml.) is)))
 
 (defn load-edn [^java.io.InputStream is]
-  (edn/read-string (slurp is)))
+  (read-string (slurp is)))
 
 (defn init-state-dispatch-fn [format _]
   (keyword format))
