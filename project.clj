@@ -1,4 +1,4 @@
-(defproject org.pupcus/i18n-clj "0.1.2-SNAPSHOT"
+(defproject org.pupcus/i18n-clj "0.1.2"
 
   :description "i18n message strings for clojure"
 
