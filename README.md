@@ -4,12 +4,7 @@ This library is designed to retrieve and optionally format locale specific messa
 
 It contains a few different formatting functions depending on your preference. Currently it provides formatting methods for `java.util.MessageFormat` based formatting, standard java/clojure `format` based formatting, common list `format` based formatting (via `clojure.pprint/cl-format`), and finally moustache template formatting.  See examples below.
 
-## Usage
-
-### leiningen
-
-    [org.pupcus/i18n-clj "0.1.1"]
-
+[![Clojars Project](https://img.shields.io/clojars/v/org.pupcus/i18n-clj.svg)](https://clojars.org/org.pupcus/i18n-clj)
 
 ## Bundles
 
