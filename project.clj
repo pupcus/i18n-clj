@@ -9,34 +9,39 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
 
-  :dependencies [[org.clojure/clojure "1.7.0"]
-                 [org.clojure/tools.logging "0.3.1"]
-                 [org.clojure/tools.reader  "0.10.0"]
-                 [com.stuartsierra/component "0.3.0"]
+  :dependencies [[clj-yaml "0.4.0"]
+                 [com.stuartsierra/component "0.3.2"]
                  [de.ubercode.clostache/clostache "1.4.0"]
-                 [clj-yaml "0.4.0"]]
+                 [org.clojure/clojure "1.8.0"]
+                 [org.clojure/tools.logging "0.4.0"]
+                 [org.clojure/tools.reader  "1.1.0"]]
 
 
-  :profiles
-  {:dev {:dependencies [[javax.servlet/servlet-api "2.5"]
-                        [compojure "1.4.0"]
-                        [ring "1.4.0"]
-                        [ring/ring-mock "0.3.0"]
-                        [log4j "1.2.17" :exclusions [javax.mail/mail
-                                                     javax.jms/jms
-                                                     com.sun.jdmk/jmxtools
-                                                     com.sun.jmx/jmxri]]
-                        [org.slf4j/slf4j-log4j12 "1.7.5"]]}}
-
-  :global-vars {*warn-on-reflection* true
-                *assert* false}
-
+  :profiles {:dev {:dependencies [[compojure "1.6.0"]
+                                  [javax.servlet/servlet-api "2.5"]
+                                  [org.slf4j/slf4j-log4j12 "1.7.25"]
+                                  [ring "1.6.2"]
+                                  [ring/ring-mock "0.3.1"]]}}
 
   :aot [org.pupcus.i18n.ResourceBundle]
 
   :deploy-repositories [["snapshots"
                          {:url "https://clojars.org/repo"
+                          :sign-releases false
                           :creds :gpg}]
                         ["releases"
                          {:url "https://clojars.org/repo"
-                          :creds :gpg}]])
+                          :sign-releases false
+                          :creds :gpg}]]
+
+  :release-tasks [["vcs" "assert-committed"]
+                  ["change" "version" "leiningen.release/bump-version" "release"]
+                  ["vcs" "commit"]
+                  ["vcs" "tag" "--no-sign"]
+                  ["deploy"]
+                  ["change" "version" "leiningen.release/bump-version"]
+                  ["vcs" "commit"]
+                  ["vcs" "push"]]
+
+  :global-vars {*warn-on-reflection* true
+                *assert* false})
